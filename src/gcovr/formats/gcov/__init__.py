@@ -181,7 +181,7 @@ class GcovHandler(BaseHandler):
                     "the path from gcc to the gcda file (i.e. gcc's '-o' option), "
                     "or the path from the gcda file to gcc's working directory."
                 ),
-                type=relative_path,
+                type=str,
             ),
             GcovrConfigOption(
                 "gcov_keep",
