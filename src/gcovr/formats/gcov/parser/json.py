@@ -86,7 +86,10 @@ def parse_coverage(
             current_dir=current_dir,
         )
         if not fname:
-            LOGGER.warning(f"Source file '{file["file"]}' could not be resolved. Skipping.")
+            original_name = file["file"]
+            LOGGER.warning(
+                f"Source file '{original_name}' could not be resolved. Skipping."
+            )
             continue
         fname = os.path.normpath(fname)
         LOGGER.debug(f"Parsing coverage data for file {fname}")
