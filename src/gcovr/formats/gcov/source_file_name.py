@@ -1,4 +1,3 @@
-
 import logging
 import os
 from typing import Optional
@@ -9,6 +8,7 @@ from ...utils import (
 )
 
 LOGGER = logging.getLogger("gcovr")
+
 
 def guess_source_file_name(
     source_from_gcov: str,
