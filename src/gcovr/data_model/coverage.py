@@ -1742,9 +1742,7 @@ class FileCoverage(CoverageBase):
     ) -> Optional[FileCoverage]:
         """Deserialize the object."""
         filename = os.path.normpath(
-            os.path.join(
-                os.path.abspath(options.root), data_dict["file"]
-            )
+            os.path.join(os.path.abspath(options.root), data_dict["file"])
         )
 
         if is_file_excluded(filename, options.filter, options.exclude):
