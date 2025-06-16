@@ -185,10 +185,10 @@ def process_gcov_json_data(
         include_filters=options.filter,
         exclude_filters=options.exclude,
         ignore_parse_errors=options.gcov_ignore_parse_errors,
-        suspicious_hits_threshold=options.gcov_suspicious_hits_threshold,
-        source_encoding=options.source_encoding,
         current_dir=current_dir,
         options=options,
+        suspicious_hits_threshold=options.gcov_suspicious_hits_threshold,
+        source_encoding=options.source_encoding,
     )
 
     merge_options = get_merge_mode_from_options(options)

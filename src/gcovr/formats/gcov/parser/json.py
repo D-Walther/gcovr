@@ -59,7 +59,7 @@ def parse_coverage(
     include_filters: list[Filter],
     exclude_filters: list[Filter],
     ignore_parse_errors: Optional[set[str]],
-    current_dir: str,
+    current_dir: Optional[str],
     options: Options,
     suspicious_hits_threshold: int = SUSPICIOUS_COUNTER,
     source_encoding: str = DEFAULT_SOURCE_ENCODING,
