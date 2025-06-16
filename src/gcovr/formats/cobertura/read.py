@@ -83,6 +83,7 @@ def read_report(options: Options) -> CoverageContainer:
 
             filename = str(os.path.normpath(os.path.join(source_dir, filename)))
             if is_file_excluded(filename, options.filter, options.exclude):
+                LOGGER.warning(f"Excluded ({__file__}): {filename}")
                 continue
 
             filecov = FileCoverage(data_source, filename=filename)

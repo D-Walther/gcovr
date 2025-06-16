@@ -255,6 +255,7 @@ def process_gcov_text_data(
         return
 
     if is_file_excluded(fname, options.filter, options.exclude):
+        LOGGER.warning(f"Excluded 1 ({__file__}): {fname}")
         return
 
     LOGGER.debug(f"Parsing coverage data for file {fname}")
@@ -350,6 +351,9 @@ def process_datafile(
             wd = os.path.dirname(wd)
 
     for wd in potential_wd:
+        if not os.path.exists(wd):
+            LOGGER.warning(f"Working directory '{wd}' does not exist!")
+            continue
         done = run_gcov_and_process_files(
             abs_filename,
             covdata,
@@ -766,6 +770,7 @@ def select_gcov_files_from_stdout(
         all_files.add(full)
 
         if is_file_excluded(full, gcov_filter, gcov_exclude):
+            LOGGER.warning(f"Excluded 2 ({__file__}): {fname}")
             continue
 
         active_files.add(full)
@@ -781,7 +786,7 @@ def process_existing_gcov_file(
 ) -> None:
     """Process an existing GCOV filename."""
     if is_file_excluded(filename, options.gcov_filter, options.gcov_exclude):
-        LOGGER.debug(f"Excluding gcov file: {filename}")
+        LOGGER.warning(f"Excluding gcov file: {filename}")
 
     if filename.endswith(".gcov"):
         process_gcov_text_data(filename, None, covdata, options)

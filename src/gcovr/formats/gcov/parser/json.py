@@ -92,6 +92,7 @@ def parse_coverage(
         LOGGER.debug(f"Parsing coverage data for file {fname}")
 
         if is_file_excluded(fname, include_filters, exclude_filters):
+            LOGGER.warning(f"Excluded ({__file__}): {fname}")
             continue
 
         max_line_number = file["lines"][-1]["line_number"] if file["lines"] else 1

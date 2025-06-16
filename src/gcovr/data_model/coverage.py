@@ -1748,6 +1748,7 @@ class FileCoverage(CoverageBase):
         )
 
         if is_file_excluded(filename, options.filter, options.exclude):
+            LOGGER.warning(f"Excluded ({__file__}): {filename}")
             return None
 
         filecov = FileCoverage(

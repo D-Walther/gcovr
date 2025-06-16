@@ -108,6 +108,7 @@ def read_reports(options: Options) -> CoverageContainer:
                 # Return if the filename does not match the filter
                 # Return if the filename matches the exclude pattern
                 if is_file_excluded(fname, options.filter, options.exclude):
+                    LOGGER.warning(f"Excluded ({__file__}): {fname}")
                     continue
 
                 filecov = FileCoverage("option --include", filename=fname)
