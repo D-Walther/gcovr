@@ -27,7 +27,6 @@ from ...options import (
     FilterOption,
     GcovrConfigOption,
     NonEmptyFilterOption,
-    relative_path,
 )
 
 
